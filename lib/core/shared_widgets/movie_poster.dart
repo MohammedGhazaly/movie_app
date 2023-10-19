@@ -23,11 +23,10 @@ class MoviePoster extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: Positioned(
-              top: 0,
-              left: 0,
+          Positioned(
+            top: 0,
+            left: 0,
+            child: InkWell(
               child: Container(
                 width: 32,
                 height: 50,

@@ -36,7 +36,7 @@ final List<DummyMovieModel> dummyMovieData = [
       realeseYear: "2019",
       rating: "PG-13",
       score: 7.7,
-      durationTime: "durationTime",
+      durationTime: "2h 7m",
       generes: ["action", "drama", "fantasy"],
       actors: ["Al-pachino", "Robery de-niro"]),
   DummyMovieModel(
@@ -48,7 +48,7 @@ final List<DummyMovieModel> dummyMovieData = [
       realeseYear: "2019",
       rating: "PG-13",
       score: 7.7,
-      durationTime: "durationTime",
+      durationTime: "2h 7m",
       generes: ["action", "drama", "fantasy"],
       actors: ["Al-pachino", "Robery de-niro"],
       isWishListed: true),
