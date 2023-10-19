@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
+import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/dummy_movie_model.dart';
 
@@ -34,7 +36,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
           Positioned(
             bottom: MediaQuery.of(context).size.height * 0.13 * -1,
             right: 0,
-            left: 25,
+            left: 20.w,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -54,32 +56,31 @@ class PopularMovieCarouselItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 15.h,
                       ),
                       Row(
                         children: [
                           Text(
                             movie.realeseYear,
-                            style: AppStyles.textStyle14,
+                            style: AppStyles.textStyle12
+                                .copyWith(color: AppColors.greyLightColor),
                           ),
-                          const SizedBox(
-                            width: 7,
+                          SizedBox(
+                            width: 7.h,
                           ),
                           Text(
                             movie.rating,
-                            style: AppStyles.textStyle14,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                            style: AppStyles.textStyle12
+                                .copyWith(color: AppColors.greyLightColor),
                           ),
-                          const SizedBox(
-                            width: 7,
+                          SizedBox(
+                            width: 7.h,
                           ),
                           Text(
                             movie.durationTime,
-                            style: AppStyles.textStyle14,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                            style: AppStyles.textStyle12
+                                .copyWith(color: AppColors.greyLightColor),
                           ),
                         ],
                       ),
