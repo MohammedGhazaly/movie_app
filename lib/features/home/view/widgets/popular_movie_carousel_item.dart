@@ -22,7 +22,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
           Image.asset(
             movie.image,
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: 200.h,
             fit: BoxFit.fill,
           ),
           Positioned.fill(
@@ -57,7 +57,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
                         maxLines: 2,
                       ),
                       SizedBox(
-                        height: 15.h,
+                        height: 10.h,
                       ),
                       Row(
                         children: [
@@ -83,6 +83,9 @@ class PopularMovieCarouselItem extends StatelessWidget {
                                 .copyWith(color: AppColors.greyLightColor),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: 20.h,
                       ),
                     ],
                   ),
