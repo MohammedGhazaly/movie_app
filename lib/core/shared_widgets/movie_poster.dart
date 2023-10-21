@@ -4,7 +4,8 @@ import 'package:movies_app/dummy_movie_model.dart';
 
 class MoviePoster extends StatelessWidget {
   final DummyMovieModel movie;
-  const MoviePoster({super.key, required this.movie});
+  final double height;
+  const MoviePoster({super.key, required this.movie, required this.height});
 
   @override
   Widget build(BuildContext context) {

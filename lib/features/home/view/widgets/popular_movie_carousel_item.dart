@@ -43,6 +43,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
               children: [
                 MoviePoster(
                   movie: movie,
+                  height: 200.h,
                 ),
                 const SizedBox(
                   width: 15,
