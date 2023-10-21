@@ -27,7 +27,7 @@ class PopularMoviesCarouselSlider extends StatelessWidget {
         height: 200.h,
         enableInfiniteScroll: true,
         autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 2),
+        autoPlayInterval: const Duration(seconds: 4),
         scrollDirection: Axis.horizontal,
       ),
     );
