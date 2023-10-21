@@ -15,7 +15,6 @@ class RecomendedMoviesSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15.h),
       width: double.infinity,
-      height: 370.h,
       color: AppColors.darkColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +31,8 @@ class RecomendedMoviesSection extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Expanded(
+          SizedBox(
+            height: 310.h,
             child: ListView.builder(
               itemCount: dummyMovieData.length,
               scrollDirection: Axis.horizontal,
