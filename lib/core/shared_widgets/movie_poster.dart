@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/dummy_movie_model.dart';
 
 class MoviePoster extends StatelessWidget {
@@ -10,7 +9,7 @@ class MoviePoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200.h,
+      height: height,
       child: Stack(
         children: [
           AspectRatio(
