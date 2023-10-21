@@ -18,7 +18,7 @@ class RecomendedMovieItem extends StatelessWidget {
           color: AppColors.cardDarkColor,
           boxShadow: [
             BoxShadow(
-                offset: Offset(
+                offset: const Offset(
                   5,
                   5,
                 ),
