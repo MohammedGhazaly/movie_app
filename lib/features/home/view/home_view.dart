@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/dummy_movie_model.dart';
-import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_item.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:movies_app/features/home/view/widgets/new_releases_section.dart';
 import 'package:movies_app/features/home/view/widgets/popular_movies_carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,10 +9,16 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          PopularMoviesCarouselSlider(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            PopularMoviesCarouselSlider(),
+            SizedBox(
+              height: 175.h,
+            ),
+            NewReleasesSection()
+          ],
+        ),
       ),
     );
   }
