@@ -1,32 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/shared_widgets/movie_poster.dart';
-import 'package:movies_app/core/utils/app_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/dummy_movie_model.dart';
+import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_item.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:movies_app/features/home/view/widgets/popular_movies_carousel_slider.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "SEARCH",
-        style: AppStyles.textStyle22,
+    return SafeArea(
+      child: Column(
+        children: [
+          PopularMoviesCarouselSlider(),
+        ],
       ),
     );
-
-    // Center(
-    //   child: Column(
-    //     mainAxisAlignment: MainAxisAlignment.center,
-    //     children: [
-    //       MoviePoster(
-    //         movie: dummyMovieData[0],
-    //       ),
-    //       MoviePoster(
-    //         movie: dummyMovieData[1],
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
