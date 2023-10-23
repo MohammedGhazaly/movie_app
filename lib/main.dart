@@ -27,7 +27,7 @@ class MoviesApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Movies App',
           theme: AppTheme.mainTheme,
-          initialRoute: MovieDetailsView.routeName,
+          initialRoute: RootView.routeName,
           routes: {
             RootView.routeName: (context) => const RootView(),
             MovieDetailsView.routeName: (context) => const MovieDetailsView(),

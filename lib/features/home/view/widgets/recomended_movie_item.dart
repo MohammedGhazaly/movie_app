@@ -5,9 +5,9 @@ import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/dummy_movie_model.dart';
 
-class RecomendedMovieItem extends StatelessWidget {
+class MovieSubDetailsItem extends StatelessWidget {
   final DummyMovieModel movieModel;
-  const RecomendedMovieItem({super.key, required this.movieModel});
+  const MovieSubDetailsItem({super.key, required this.movieModel});
 
   @override
   Widget build(BuildContext context) {
