@@ -5,10 +5,8 @@ import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/dummy_movie_model.dart';
 import 'package:movies_app/features/home/view/widgets/recomended_movie_item.dart';
 
-class RecomendedMoviesSection extends StatelessWidget {
-  const RecomendedMoviesSection({
-    super.key,
-  });
+class SimilarMoviesSection extends StatelessWidget {
+  const SimilarMoviesSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class RecomendedMoviesSection extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-              "Recomended",
+              "More Like This",
               style: AppStyles.textStyle18.copyWith(
                 fontWeight: FontWeight.normal,
               ),

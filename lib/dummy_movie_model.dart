@@ -37,7 +37,7 @@ final List<DummyMovieModel> dummyMovieData = [
       rating: "PG-13",
       score: 7.7,
       durationTime: "2h 7m",
-      generes: ["action", "drama", "fantasy"],
+      generes: ["action", "drama", "fantasy", "war", "crime", "comedy"],
       actors: ["Al-pachino", "Robery de-niro"]),
   DummyMovieModel(
       image: "assets/images/background.png",
