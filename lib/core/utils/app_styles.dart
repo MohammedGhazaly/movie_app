@@ -28,7 +28,11 @@ class AppStyles {
       fontWeight: FontWeight.w600,
       color: AppColors.whiteColor);
   static TextStyle textStyle22 = TextStyle(
+
       fontSize: 22.sp,
       fontWeight: FontWeight.bold,
       color: AppColors.whiteColor);
+
+  );
+
 }
