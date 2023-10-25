@@ -24,9 +24,139 @@ class DummyMovieModel {
     this.isWishListed = false,
     required this.actors,
   });
+
+  static List<DummyMovieModel> dummyMovieData() {
+    return [
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy", "war", "crime", "comedy"],
+          actors: ["Al-pachino", "Robery de-niro"]),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"],
+          isWishListed: true),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"]),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"],
+          isWishListed: true),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"]),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"],
+          isWishListed: true),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"]),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"],
+          isWishListed: true),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"]),
+      DummyMovieModel(
+          image: "assets/images/background.png",
+          poster: "assets/images/poster.png",
+          title: "Dora and the lost city of gold",
+          description:
+              "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+          realeseYear: "2019",
+          rating: "PG-13",
+          score: 7.7,
+          durationTime: "2h 7m",
+          generes: ["action", "drama", "fantasy"],
+          actors: ["Al-pachino", "Robery de-niro"],
+          isWishListed: true),
+    ];
+  }
 }
 
-final List<DummyMovieModel> dummyMovieData = [
+List<DummyMovieModel> dummyMovieData = [
   DummyMovieModel(
       image: "assets/images/background.png",
       poster: "assets/images/poster.png",
@@ -37,7 +167,7 @@ final List<DummyMovieModel> dummyMovieData = [
       rating: "PG-13",
       score: 7.7,
       durationTime: "2h 7m",
-      generes: ["action", "drama", "fantasy"],
+      generes: ["action", "drama", "fantasy", "war", "crime", "comedy"],
       actors: ["Al-pachino", "Robery de-niro"]),
   DummyMovieModel(
       image: "assets/images/background.png",
