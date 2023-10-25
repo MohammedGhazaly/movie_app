@@ -3,16 +3,17 @@ import 'package:movies_app/dummy_movie_model.dart';
 
 class MoviePoster extends StatelessWidget {
   final DummyMovieModel movie;
-  const MoviePoster({super.key, required this.movie});
+  final double height;
+  const MoviePoster({super.key, required this.movie, required this.height});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: height,
       child: Stack(
         children: [
           AspectRatio(
-            aspectRatio: 2.6 / 4,
+            aspectRatio: 65 / 100,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
