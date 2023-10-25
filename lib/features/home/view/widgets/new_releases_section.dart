@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class NewReleasesSection extends StatelessWidget {
   const NewReleasesSection({
@@ -32,22 +31,37 @@ class NewReleasesSection extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: dummyMovieData.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: MoviePoster(
-                    movie: dummyMovieData[index],
-                    height: 50.h,
-                    aspectRatio: 65 / 100,
-                  ),
-                );
-              },
-            ),
-          ),
+          //دا الكود في حالة Success
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemCount: 10,
+          //     scrollDirection: Axis.horizontal,
+          //     itemBuilder: (context, index) {
+          //       return Padding(
+          //         padding: EdgeInsets.symmetric(horizontal: 10.w),
+          //         child: MoviePoster(
+          //           height: 50.h,
+          //           aspectRatio: 65 / 100,
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
+
+          // دا الكود في حالة الفايلد
+          //  return Expanded(
+          //         child: Text(
+          //           state.errorMessage,
+          //           style: AppStyles.textStyle20,
+          //         ),
+          //       );
+          // دا الكود في حالة اللودينج
+          // return Expanded(
+          //         child: SpinKitFoldingCube(
+          //           size: 35.sp,
+          //           color: AppColors.yellowColor,
+          //         ),
+          //       );
         ],
       ),
     );

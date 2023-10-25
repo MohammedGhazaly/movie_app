@@ -1,15 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/dummy_movie_model.dart';
+import 'package:movies_app/core/constants/api_constants.dart';
+import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
 class MoviePoster extends StatelessWidget {
-  final DummyMovieModel movie;
   final double height;
   final double aspectRatio;
+  final Movie movie;
+
   const MoviePoster(
       {super.key,
-      required this.movie,
       required this.height,
-      required this.aspectRatio});
+      required this.aspectRatio,
+      required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +21,13 @@ class MoviePoster extends StatelessWidget {
       child: Stack(
         children: [
           AspectRatio(
-            // aspectRatio: 65 / 100,
-            aspectRatio: aspectRatio,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(movie.poster),
-                ),
+            aspectRatio: 65 / 100,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: CachedNetworkImage(
+                // imageUrl: artilce.urlToImage!,
+                imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -41,13 +42,15 @@ class MoviePoster extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      movie.isWishListed == false
-                          ? "assets/icons/bookmark_add.png"
-                          : "assets/icons/bookmarked.png",
-                    ),
-                  ),
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/icons/bookmark_add.png")
+
+                      // AssetImage(
+                      //   movie.isWishListed == false
+                      //       ? "assets/icons/bookmark_add.png"
+                      //       : "assets/icons/bookmarked.png",
+                      // ),
+                      ),
                 ),
               ),
             ),

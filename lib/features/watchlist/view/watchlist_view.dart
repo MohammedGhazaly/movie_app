@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 import 'package:movies_app/features/watchlist/view/widgets/watch_list_item.dart';
 
 class WatchlistView extends StatefulWidget {
@@ -15,7 +14,6 @@ class WatchlistView extends StatefulWidget {
 }
 
 class _WatchlistViewState extends State<WatchlistView> {
-  var dummyList = DummyMovieModel.dummyMovieData();
   @override
   void initState() {
     // TODO: implement initState
@@ -48,7 +46,7 @@ class _WatchlistViewState extends State<WatchlistView> {
               color: AppColors.greyDarkColor,
               height: 2,
             ),
-            itemCount: dummyList.length,
+            itemCount: 10,
           ),
         ),
       ],

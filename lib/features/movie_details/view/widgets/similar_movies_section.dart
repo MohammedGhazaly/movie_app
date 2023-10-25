@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
-import 'package:movies_app/features/home/view/widgets/recomended_movie_item.dart';
+import 'package:movies_app/features/home/view/widgets/top_rated_movies_item.dart';
 
 class SimilarMoviesSection extends StatelessWidget {
   const SimilarMoviesSection({super.key});
@@ -29,19 +28,19 @@ class SimilarMoviesSection extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          SizedBox(
-            height: 310.h,
-            child: ListView.builder(
-              itemCount: dummyMovieData.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: MovieSubDetailsItem(movieModel: dummyMovieData[index]),
-                );
-              },
-            ),
-          ),
+          // SizedBox(
+          //   height: 310.h,
+          //   child: ListView.builder(
+          //     itemCount: 10,
+          //     scrollDirection: Axis.horizontal,
+          //     itemBuilder: (context, index) {
+          //       return Padding(
+          //         padding: EdgeInsets.symmetric(horizontal: 10.w),
+          //         child: MovieSubDetailsItem(),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

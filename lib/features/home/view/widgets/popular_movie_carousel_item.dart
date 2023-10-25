@@ -1,12 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/constants/api_constants.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
+import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
 class PopularMovieCarouselItem extends StatelessWidget {
-  final DummyMovieModel movie;
+  final Movie movie;
   const PopularMovieCarouselItem({
     super.key,
     required this.movie,
@@ -19,20 +21,21 @@ class PopularMovieCarouselItem extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          Image.asset(
-            movie.image,
+          CachedNetworkImage(
+            // imageUrl: artilce.urlToImage!,
+            imageUrl: "${ApiConstants.imagePrefix}${movie.backdropPath}",
+            fit: BoxFit.fill,
             width: double.infinity,
             height: 200.h,
-            fit: BoxFit.fill,
           ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                "assets/icons/play_icon.png",
-              ),
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: Image.asset(
+          //       "assets/icons/play_icon.png",
+          //     ),
+          //   ),
+          // ),
           Positioned(
             // bottom: MediaQuery.of(context).size.height * 0.13 * -1,
             bottom: -100.h,
@@ -54,36 +57,35 @@ class PopularMovieCarouselItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        movie.title,
-                        style: AppStyles.textStyle14,
+                        movie.title ?? "",
+                        style: AppStyles.textStyle16,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
                       SizedBox(
-                        height: 10.h,
+                        height: 5.h,
                       ),
                       Row(
                         children: [
-                          Text(
-                            movie.realeseYear,
-                            style: AppStyles.textStyle12
-                                .copyWith(color: AppColors.greyLightColor),
+                          Icon(
+                            Icons.star,
+                            color: AppColors.yellowColor,
+                            size: 24.sp,
                           ),
                           SizedBox(
-                            width: 7.h,
+                            width: 5.w,
                           ),
                           Text(
-                            movie.rating,
-                            style: AppStyles.textStyle12
-                                .copyWith(color: AppColors.greyLightColor),
+                            movie.voteAverage ?? "0",
+                            style: AppStyles.textStyle14,
                           ),
                           SizedBox(
-                            width: 7.h,
+                            width: 5.w,
                           ),
                           Text(
-                            movie.durationTime,
-                            style: AppStyles.textStyle12
-                                .copyWith(color: AppColors.greyLightColor),
+                            "(${movie.voteCount ?? "0"})",
+                            style: AppStyles.textStyle14
+                                .copyWith(color: Colors.white.withOpacity(0.6)),
                           ),
                         ],
                       ),
