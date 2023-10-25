@@ -24,27 +24,28 @@ class DummyMovieModel {
     this.isWishListed = false,
     required this.actors,
   });
-}
 
-final List<DummyMovieModel> dummyMovieData = [
-  DummyMovieModel(
+
+  static List<DummyMovieModel> dummyMovieData (){
+  return[
+   DummyMovieModel(
       image: "assets/images/background.png",
       poster: "assets/images/poster.png",
       title: "Dora and the lost city of gold",
       description:
-          "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+      "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
       realeseYear: "2019",
       rating: "PG-13",
       score: 7.7,
       durationTime: "durationTime",
       generes: ["action", "drama", "fantasy"],
       actors: ["Al-pachino", "Robery de-niro"]),
-  DummyMovieModel(
+   DummyMovieModel(
       image: "assets/images/background.png",
       poster: "assets/images/poster.png",
       title: "Dora and the lost city of gold",
       description:
-          "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
+      "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school.",
       realeseYear: "2019",
       rating: "PG-13",
       score: 7.7,
@@ -52,4 +53,6 @@ final List<DummyMovieModel> dummyMovieData = [
       generes: ["action", "drama", "fantasy"],
       actors: ["Al-pachino", "Robery de-niro"],
       isWishListed: true),
-];
+      ];
+  }
+}
