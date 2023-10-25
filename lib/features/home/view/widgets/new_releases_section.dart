@@ -39,8 +39,11 @@ class NewReleasesSection extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child:
-                      MoviePoster(movie: dummyMovieData[index], height: 50.h),
+                  child: MoviePoster(
+                    movie: dummyMovieData[index],
+                    height: 50.h,
+                    aspectRatio: 65 / 100,
+                  ),
                 );
               },
             ),

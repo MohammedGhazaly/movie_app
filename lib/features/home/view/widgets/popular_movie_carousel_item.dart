@@ -42,6 +42,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 MoviePoster(
+                  aspectRatio: 65 / 100,
                   movie: movie,
                   height: 200.h,
                 ),
