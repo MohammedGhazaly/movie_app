@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class NewReleasesSection extends StatelessWidget {
   const NewReleasesSection({
@@ -34,13 +33,12 @@ class NewReleasesSection extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: dummyMovieData.length,
+              itemCount: 10,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: MoviePoster(
-                    movie: dummyMovieData[index],
                     height: 50.h,
                     aspectRatio: 65 / 100,
                   ),

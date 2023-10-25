@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_genres.dart';
 
 class MovieDetailsBottom extends StatelessWidget {
@@ -20,7 +19,6 @@ class MovieDetailsBottom extends StatelessWidget {
         children: [
           MoviePoster(
             aspectRatio: 65 / 100,
-            movie: dummyMovieData[0],
             height: 200.h,
           ),
           SizedBox(

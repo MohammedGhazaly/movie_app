@@ -3,13 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class PopularMovieCarouselItem extends StatelessWidget {
-  final DummyMovieModel movie;
   const PopularMovieCarouselItem({
     super.key,
-    required this.movie,
   });
 
   @override
@@ -20,18 +17,10 @@ class PopularMovieCarouselItem extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Image.asset(
-            movie.image,
+            "assets/images/background.png",
             width: double.infinity,
             height: 200.h,
             fit: BoxFit.fill,
-          ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                "assets/icons/play_icon.png",
-              ),
-            ),
           ),
           Positioned(
             // bottom: MediaQuery.of(context).size.height * 0.13 * -1,
@@ -43,7 +32,6 @@ class PopularMovieCarouselItem extends StatelessWidget {
               children: [
                 MoviePoster(
                   aspectRatio: 65 / 100,
-                  movie: movie,
                   height: 200.h,
                 ),
                 const SizedBox(
@@ -54,7 +42,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        movie.title,
+                        " movie.title",
                         style: AppStyles.textStyle14,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -65,7 +53,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            movie.realeseYear,
+                            " ",
                             style: AppStyles.textStyle12
                                 .copyWith(color: AppColors.greyLightColor),
                           ),
@@ -73,17 +61,12 @@ class PopularMovieCarouselItem extends StatelessWidget {
                             width: 7.h,
                           ),
                           Text(
-                            movie.rating,
+                            "",
                             style: AppStyles.textStyle12
                                 .copyWith(color: AppColors.greyLightColor),
                           ),
                           SizedBox(
                             width: 7.h,
-                          ),
-                          Text(
-                            movie.durationTime,
-                            style: AppStyles.textStyle12
-                                .copyWith(color: AppColors.greyLightColor),
                           ),
                         ],
                       ),

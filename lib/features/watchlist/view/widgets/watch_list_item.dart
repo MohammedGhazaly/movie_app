@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class WatchListItem extends StatelessWidget {
   const WatchListItem({super.key});
@@ -16,7 +15,6 @@ class WatchListItem extends StatelessWidget {
         children: [
           MoviePoster(
             aspectRatio: 75 / 100,
-            movie: dummyMovieData[0],
             height: 150.h,
           ),
           SizedBox(

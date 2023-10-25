@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_item.dart';
 
 class PopularMoviesCarouselSlider extends StatelessWidget {
@@ -12,9 +11,9 @@ class PopularMoviesCarouselSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      itemCount: dummyMovieData.length,
+      itemCount: 10,
       itemBuilder: (context, index, realIndex) {
-        return PopularMovieCarouselItem(movie: dummyMovieData[index]);
+        return PopularMovieCarouselItem();
       },
       options: CarouselOptions(
         enlargeCenterPage: true,

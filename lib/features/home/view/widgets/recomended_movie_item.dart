@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class MovieSubDetailsItem extends StatelessWidget {
-  final DummyMovieModel movieModel;
-  const MovieSubDetailsItem({super.key, required this.movieModel});
+  const MovieSubDetailsItem({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,6 @@ class MovieSubDetailsItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MoviePoster(
-            movie: movieModel,
             height: 210.h,
             aspectRatio: 65 / 100,
           ),
@@ -49,7 +48,7 @@ class MovieSubDetailsItem extends StatelessWidget {
                   width: 5.w,
                 ),
                 Text(
-                  movieModel.score.toString(),
+                  "",
                   style: AppStyles.textStyle12,
                 ),
               ],
@@ -58,7 +57,7 @@ class MovieSubDetailsItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 5),
             child: Text(
-              movieModel.title,
+              "   movieModel.title",
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: AppStyles.textStyle14,
@@ -72,7 +71,7 @@ class MovieSubDetailsItem extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  movieModel.realeseYear,
+                  " movieModel.realeseYear",
                   style: AppStyles.textStyle10
                       .copyWith(color: AppColors.greyLightColor),
                 ),
@@ -80,7 +79,7 @@ class MovieSubDetailsItem extends StatelessWidget {
                   width: 5,
                 ),
                 Text(
-                  movieModel.rating,
+                  " movieModel.rating",
                   style: AppStyles.textStyle10
                       .copyWith(color: AppColors.greyLightColor),
                 ),
@@ -89,7 +88,7 @@ class MovieSubDetailsItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    movieModel.durationTime,
+                    "  movieModel.durationTime",
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.textStyle10
                         .copyWith(color: AppColors.greyLightColor),

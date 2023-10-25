@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 import 'package:movies_app/features/home/view/widgets/recomended_movie_item.dart';
 
 class SimilarMoviesSection extends StatelessWidget {
@@ -32,12 +31,12 @@ class SimilarMoviesSection extends StatelessWidget {
           SizedBox(
             height: 310.h,
             child: ListView.builder(
-              itemCount: dummyMovieData.length,
+              itemCount: 10,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: MovieSubDetailsItem(movieModel: dummyMovieData[index]),
+                  child: MovieSubDetailsItem(),
                 );
               },
             ),

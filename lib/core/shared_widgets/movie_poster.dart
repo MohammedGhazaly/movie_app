@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/dummy_movie_model.dart';
 
 class MoviePoster extends StatelessWidget {
-  final DummyMovieModel movie;
   final double height;
   final double aspectRatio;
   const MoviePoster(
-      {super.key,
-      required this.movie,
-      required this.height,
-      required this.aspectRatio});
+      {super.key, required this.height, required this.aspectRatio});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +20,7 @@ class MoviePoster extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(movie.poster),
+                  image: AssetImage("assets/images/poster.png"),
                 ),
               ),
             ),
@@ -41,13 +36,15 @@ class MoviePoster extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      movie.isWishListed == false
-                          ? "assets/icons/bookmark_add.png"
-                          : "assets/icons/bookmarked.png",
-                    ),
-                  ),
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/icons/bookmark_add.png")
+
+                      // AssetImage(
+                      //   movie.isWishListed == false
+                      //       ? "assets/icons/bookmark_add.png"
+                      //       : "assets/icons/bookmarked.png",
+                      // ),
+                      ),
                 ),
               ),
             ),
