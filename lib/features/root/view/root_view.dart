@@ -16,7 +16,7 @@ class RootView extends StatefulWidget {
 
 class _RootViewState extends State<RootView> {
   int selectedIndex = 0;
-  List<Widget> screens = const [
+  List<Widget> screens =  [
     HomeView(),
     SearchView(),
     BrowseView(),
