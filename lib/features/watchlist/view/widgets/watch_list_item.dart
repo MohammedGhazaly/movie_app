@@ -13,10 +13,10 @@ class WatchListItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          MoviePoster(
-            aspectRatio: 75 / 100,
-            height: 150.h,
-          ),
+          // MoviePoster(
+          //   aspectRatio: 75 / 100,
+          //   height: 150.h,
+          // ),
           SizedBox(
             width: 15.w,
           ),

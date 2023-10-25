@@ -31,21 +31,21 @@ class NewReleasesSection extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: MoviePoster(
-                    height: 50.h,
-                    aspectRatio: 65 / 100,
-                  ),
-                );
-              },
-            ),
-          ),
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemCount: 10,
+          //     scrollDirection: Axis.horizontal,
+          //     itemBuilder: (context, index) {
+          //       return Padding(
+          //         padding: EdgeInsets.symmetric(horizontal: 10.w),
+          //         child: MoviePoster(
+          //           height: 50.h,
+          //           aspectRatio: 65 / 100,
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

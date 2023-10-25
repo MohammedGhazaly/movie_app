@@ -37,7 +37,7 @@ class _PopularMoviesCarouselSliderState
           return CarouselSlider.builder(
             itemCount: state.movies.length,
             itemBuilder: (context, index, realIndex) {
-              return PopularMovieCarouselItem();
+              return PopularMovieCarouselItem(movie: state.movies[index]);
             },
             options: CarouselOptions(
               enlargeCenterPage: true,

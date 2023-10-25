@@ -3,7 +3,6 @@ import 'package:movies_app/features/home/view/widgets/new_releases_section.dart'
 import 'package:movies_app/features/home/view/widgets/popular_movies_carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/features/home/view/widgets/recomended_movies_section.dart';
-import 'package:movies_app/features/movie_details/view/widgets/movie_details_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -28,10 +28,10 @@ class MovieSubDetailsItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MoviePoster(
-            height: 210.h,
-            aspectRatio: 65 / 100,
-          ),
+          // MoviePoster(
+          //   height: 210.h,
+          //   aspectRatio: 65 / 100,
+          // ),
           const SizedBox(
             height: 5,
           ),
