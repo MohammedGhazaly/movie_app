@@ -1,4 +1,4 @@
-package com.example.bsmallah
+package com.example.movies_app
 
 import io.flutter.embedding.android.FlutterActivity
 
