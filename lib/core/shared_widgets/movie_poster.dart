@@ -28,6 +28,7 @@ class MoviePoster extends StatelessWidget {
             top: 0,
             left: 0,
             child: InkWell(
+              onTap: () {},
               child: Container(
                 width: 32,
                 height: 50,
