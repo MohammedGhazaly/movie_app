@@ -31,6 +31,7 @@ class NewReleasesSection extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
+          //دا الكود في حالة Success
           // Expanded(
           //   child: ListView.builder(
           //     itemCount: 10,
@@ -46,6 +47,21 @@ class NewReleasesSection extends StatelessWidget {
           //     },
           //   ),
           // ),
+
+          // دا الكود في حالة الفايلد
+          //  return Expanded(
+          //         child: Text(
+          //           state.errorMessage,
+          //           style: AppStyles.textStyle20,
+          //         ),
+          //       );
+          // دا الكود في حالة اللودينج
+          // return Expanded(
+          //         child: SpinKitFoldingCube(
+          //           size: 35.sp,
+          //           color: AppColors.yellowColor,
+          //         ),
+          //       );
         ],
       ),
     );
