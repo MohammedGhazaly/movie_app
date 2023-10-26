@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
           children: [
             PopularMoviesCarouselSlider(),
             SizedBox(
-              height: 175.h,
+              height: 75.h,
             ),
             NewReleasesSection(),
             SizedBox(

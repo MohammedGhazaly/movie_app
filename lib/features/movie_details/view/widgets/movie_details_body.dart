@@ -26,7 +26,7 @@ class MovieDetailsBody extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          SimilarMoviesSection()
+          // SimilarMoviesSection()
         ],
       ),
     );

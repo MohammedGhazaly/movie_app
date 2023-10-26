@@ -38,7 +38,7 @@ class PopularMovieCarouselItem extends StatelessWidget {
           // ),
           Positioned(
             // bottom: MediaQuery.of(context).size.height * 0.13 * -1,
-            bottom: -100.h,
+            bottom: -20.h,
             right: 0,
             left: 20.w,
             child: Row(
