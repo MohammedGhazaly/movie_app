@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/features/browse/view/widgets/GenreDM.dart';
+import 'package:movies_app/models/genre_model/genre_model.dart';
 
- class CustomGenreContainer extends StatelessWidget{
-   GenreDM genre;
-   int index;
-   CustomGenreContainer({required this.genre,required this.index});
+class CustomGenreContainer extends StatelessWidget {
+  GenreDM genre;
+  int index;
+  CustomGenreContainer({required this.genre, required this.index});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -14,24 +14,19 @@ import 'package:movies_app/features/browse/view/widgets/GenreDM.dart';
       width: 158.sw,
       height: 90.sh,
       decoration: BoxDecoration(
-        image: DecorationImage(
-          alignment: Alignment.center,
-            image: AssetImage(genre.imagePath),
-          filterQuality: FilterQuality.high,
-          fit: BoxFit.fill,
-          opacity: 0.63
-        ) ,
-        borderRadius: BorderRadius.circular(4.sp)
-      ),
-
+          image: const DecorationImage(
+              alignment: Alignment.center,
+              image: AssetImage("assets/images/category_image.png"),
+              filterQuality: FilterQuality.high,
+              fit: BoxFit.fill,
+              opacity: 0.63),
+          borderRadius: BorderRadius.circular(4.sp)),
       child: Center(
-        child: Text(genre.title,
-          style: AppStyles.textStyle14.copyWith(
-            fontWeight: FontWeight.bold
-          ),
+        child: Text(
+          genre.genreTitle,
+          style: AppStyles.textStyle14.copyWith(fontWeight: FontWeight.bold),
         ),
       ),
     );
   }
-
 }

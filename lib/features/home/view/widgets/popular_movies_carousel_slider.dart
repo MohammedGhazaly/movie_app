@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/shared_widgets/custom_button.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_item.dart';
@@ -59,10 +60,22 @@ class _PopularMoviesCarouselSliderState
             width: double.infinity,
             height: 200.h,
             child: Center(
-                child: Text(
-              state.errorMessage,
-              style: AppStyles.textStyle20,
-            )),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    state.errorMessage,
+                    style: AppStyles.textStyle20,
+                  ),
+                  CustomButton(
+                    onPressed: () {
+                      popularMoviesViewModel.getPopularMovies();
+                      // setState(() {});
+                    },
+                  )
+                ],
+              ),
+            ),
           );
         } else {
           return SizedBox(

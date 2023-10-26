@@ -53,6 +53,14 @@ class TopRatedMoviesSection extends StatelessWidget {
           //           ),
           //         ),
           //       );
+
+          // ده برضه الزرار اللي هنعمل به فيتش للداتا لو في ايرور
+          // getPopularMovies => بدلها هتحط الميثود اللي هتكونها
+          // CustomButton(
+          //   onPressed: () {
+          //     popularMoviesViewModel.getPopularMovies();
+          //   },
+          // )
           // دا الكود في حالة اللوديمج
           //  return Expanded(
           //         child: SpinKitFoldingCube(
