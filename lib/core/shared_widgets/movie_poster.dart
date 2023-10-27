@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/constants/api_constants.dart';
+import 'package:movies_app/core/utils/app_colors.dart';
+import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
@@ -26,8 +29,26 @@ class MoviePoster extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: CachedNetworkImage(
                 // imageUrl: artilce.urlToImage!,
+                // imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
                 imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
                 fit: BoxFit.fill,
+                errorWidget: (context, str, ob) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.yellowColor.withOpacity(
+                        1,
+                      ),
+                    ),
+                    child: Center(
+                        child: Text(
+                      "Sorry, no image found.",
+                      textAlign: TextAlign.center,
+                      style:
+                          AppStyles.textStyle16.copyWith(color: Colors.black),
+                    )),
+                  );
+                },
               ),
             ),
           ),

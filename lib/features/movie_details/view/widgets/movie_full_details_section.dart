@@ -7,7 +7,7 @@ import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_details_bottom.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_details_top.dart';
-import 'package:movies_app/features/movie_details/view_model/cubit/movie_detail_cubit.dart';
+import 'package:movies_app/features/movie_details/view_model/movie_detail_cubit/movie_detail_cubit.dart';
 
 class MovieFullDetailsSection extends StatefulWidget {
   final int movieId;
@@ -26,7 +26,6 @@ class _MovieFullDetailsSectionState extends State<MovieFullDetailsSection> {
 
   @override
   void initState() {
-    print(widget.movieId);
     movieDetailsModel.getMovieDetails(widget.movieId);
     super.initState();
   }
@@ -49,7 +48,7 @@ class _MovieFullDetailsSectionState extends State<MovieFullDetailsSection> {
         } else if (state is MovieDetailFailure) {
           return SizedBox(
             width: double.infinity,
-            height: 200.h,
+            height: 350.h,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +69,7 @@ class _MovieFullDetailsSectionState extends State<MovieFullDetailsSection> {
           );
         } else {
           return SizedBox(
-            height: 200.h,
+            height: 350.h,
             width: double.infinity,
             child: const Center(
               child: SpinKitFoldingCube(

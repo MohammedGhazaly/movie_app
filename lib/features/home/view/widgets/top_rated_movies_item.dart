@@ -23,7 +23,6 @@ class TopRatedMovieItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 5,
               child: MoviePoster(
                 aspectRatio: 65 / 100,
                 movie: movie,
@@ -49,7 +48,7 @@ class TopRatedMovieItem extends StatelessWidget {
                 SizedBox(
                   width: 5.w,
                 ),
-                Text(movie.voteAverage ?? ""),
+                Text("${double.parse(movie.voteAverage!).toStringAsFixed(1)}"),
                 SizedBox(
                   width: 5.w,
                 ),
