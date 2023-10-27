@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
@@ -8,7 +10,7 @@ part 'similar_movies_state.dart';
 class SimilarMoviesCubit extends Cubit<SimilarMoviesState> {
   SimilarMoviesCubit() : super(SimilarMoviesLoading());
 
-  Future<void> getSimilarMovies(String movieId) async {
+  Future<void> getSimilarMovies(int movieId) async {
     emit(SimilarMoviesLoading());
     try {
       var response = await ApiService.getSimilarMovies(movieId);
@@ -17,8 +19,10 @@ class SimilarMoviesCubit extends Cubit<SimilarMoviesState> {
       } else {
         emit(SimilarMoviesSucces(movies: response.results ?? []));
       }
+    } on SocketException catch (e) {
+      emit(SimilarMoviesFailure(errorMessage: "No internet connection."));
     } catch (e) {
-      emit(SimilarMoviesFailure(errorMessage: "Error loading movies"));
+      emit(SimilarMoviesFailure(errorMessage: e.toString()));
     }
   }
 }

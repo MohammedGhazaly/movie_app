@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
@@ -17,6 +19,8 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
       } else {
         emit(MovieDetailSuccess(movieDetail: response));
       }
+    } on SocketException catch (e) {
+      emit(MovieDetailFailure(errorMessage: "No internet connection."));
     } catch (e) {
       emit(MovieDetailFailure(errorMessage: e.toString()));
     }

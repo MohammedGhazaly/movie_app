@@ -26,6 +26,26 @@ class MovieDetailsTop extends StatelessWidget {
             fit: BoxFit.fill,
             width: double.infinity,
             height: 200.h,
+            errorWidget: (context, str, ob) {
+              return Container(
+                height: 200.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  // color: Colors.white.withOpacity(
+                  //   0.3,
+                  // ),
+                  color: AppColors.yellowColor.withOpacity(
+                    1,
+                  ),
+                ),
+                child: Center(
+                    child: Text(
+                  "Sorry, no image found.",
+                  style: AppStyles.textStyle20.copyWith(color: Colors.black),
+                )),
+              );
+            },
           ),
           SizedBox(
             height: 15.h,

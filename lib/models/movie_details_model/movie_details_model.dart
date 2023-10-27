@@ -102,8 +102,6 @@ class MovieDetails {
 
     releaseDate = getYear(json['release_date']);
 
-    print("Genre");
-
     runtime = json['runtime'];
 
     if (json['spoken_languages'] != null) {

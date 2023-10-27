@@ -28,6 +28,24 @@ class PopularMovieCarouselItem extends StatelessWidget {
             fit: BoxFit.fill,
             width: double.infinity,
             height: 200.h,
+            errorWidget: (context, str, ob) {
+              return Container(
+                height: 200.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.yellowColor.withOpacity(
+                    1,
+                  ),
+                ),
+                child: Center(
+                    child: Text(
+                  "Sorry, no image found.",
+                  textAlign: TextAlign.center,
+                  style: AppStyles.textStyle20.copyWith(color: Colors.black),
+                )),
+              );
+            },
           ),
           // Positioned.fill(
           //   child: Align(

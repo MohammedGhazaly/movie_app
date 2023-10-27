@@ -5,6 +5,7 @@ import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_genres.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
+import 'package:readmore/readmore.dart';
 
 class MovieDetailsBottom extends StatelessWidget {
   final MovieDetails movieDetails;
@@ -50,9 +51,21 @@ class MovieDetailsBottom extends StatelessWidget {
                       width: 15.w,
                     ),
                     Expanded(
-                      child: Text(
+                      child: ReadMoreText(
                         movieDetails.overview!,
-                        style: AppStyles.textStyle12
+                        trimMode: TrimMode.Line,
+                        trimCollapsedText: 'Show more',
+                        trimExpandedText: 'Show less',
+                        trimLines: 10,
+                        moreStyle: AppStyles.textStyle14.copyWith(
+                          color: AppColors.yellowColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        lessStyle: AppStyles.textStyle14.copyWith(
+                          color: AppColors.yellowColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        style: AppStyles.textStyle14
                             .copyWith(color: AppColors.greyLightColor),
                       ),
                     ),

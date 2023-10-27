@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
@@ -17,8 +19,10 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
       } else {
         emit(PopularMoviesSuccess(movies: response.results ?? []));
       }
+    } on SocketException catch (e) {
+      emit(PopularMoviesFailure(errorMessage: "No internet connection."));
     } catch (e) {
-      emit(PopularMoviesFailure(errorMessage: "Error loading movies"));
+      emit(PopularMoviesFailure(errorMessage: e.toString()));
     }
   }
 }
