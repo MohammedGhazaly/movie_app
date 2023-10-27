@@ -4,10 +4,13 @@ import 'package:movies_app/core/shared_widgets/movie_poster.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_genres.dart';
+import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 
 class MovieDetailsBottom extends StatelessWidget {
+  final MovieDetails movieDetails;
   const MovieDetailsBottom({
     super.key,
+    required this.movieDetails,
   });
 
   @override
@@ -16,11 +19,8 @@ class MovieDetailsBottom extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // MoviePoster(
-          //   aspectRatio: 65 / 100,
-          //   height: 200.h,
-          // ),
           SizedBox(
             width: 10.w,
           ),
@@ -30,39 +30,34 @@ class MovieDetailsBottom extends StatelessWidget {
               children: [
                 Wrap(
                   spacing: 10,
-                  runSpacing: 5,
-                  children: [
-                    MovieGenres(),
-                    MovieGenres(),
-                    MovieGenres(),
-                    MovieGenres(),
-                    MovieGenres(),
-                  ],
+                  runSpacing: 10,
+                  children: movieDetails.genres!.map((genere) {
+                    return MovieGenres(genreName: genere.name!);
+                  }).toList(),
                 ),
                 SizedBox(
                   height: 15.h,
                 ),
-                Text(
-                  "Having spent most of her life exploring the jungle, nothing could prepare Dora for her most dangerous adventure yet — high school. ",
-                  style: AppStyles.textStyle14
-                      .copyWith(color: AppColors.greyLightColor),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      Icons.star,
-                      color: AppColors.yellowColor,
+                    MoviePoster(
+                      aspectRatio: 85 / 100,
+                      height: 250.h,
+                      movie: movieDetails,
                     ),
-                    Text(
-                      "7.7",
-                      style: AppStyles.textStyle18
-                          .copyWith(fontWeight: FontWeight.normal),
-                    )
+                    SizedBox(
+                      width: 15.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                        movieDetails.overview!,
+                        style: AppStyles.textStyle12
+                            .copyWith(color: AppColors.greyLightColor),
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           )

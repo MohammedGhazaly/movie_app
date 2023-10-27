@@ -16,19 +16,17 @@ class ApiService {
       Map<String, dynamic> jsonData = jsonDecode(response.body);
 
       var responseData = MoveiResponse.fromJson(jsonData);
+
       return responseData;
     } on Exception catch (e) {
       throw e;
     }
   }
 
-  static Future<MovieDetails> getMovieDetails(String movieId) async {
+  static Future<MovieDetails> getMovieDetails(int movieId) async {
     try {
-      Uri url = Uri.https(
-        ApiConstants.baseUrl,
-        ApiConstants.movieEndPoint,
-        {"api_key": ApiConstants.apiKey, "movie_id": movieId},
-      );
+      Uri url = Uri.parse(
+          "https://${ApiConstants.baseUrl}${ApiConstants.movieEndPoint}/${movieId}?api_key=${ApiConstants.apiKey}");
       var response = await http.get(url);
 
       Map<String, dynamic> jsonData = jsonDecode(response.body);

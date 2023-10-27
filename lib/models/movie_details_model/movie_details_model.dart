@@ -16,7 +16,7 @@ class MovieDetails {
   List<ProductionCountries>? productionCountries;
   String? releaseDate;
   int? revenue;
-  String? runtime;
+  int? runtime;
   List<SpokenLanguages>? spokenLanguages;
   String? status;
   String? tagline;
@@ -63,18 +63,21 @@ class MovieDetails {
     success = json["success"];
     statusCode = json["status_code"];
     statusMessage = json["status_message"];
+
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     belongsToCollection = json['belongs_to_collection'] != null
-        ? new BelongsToCollection.fromJson(json['belongs_to_collection'])
+        ? BelongsToCollection.fromJson(json['belongs_to_collection'])
         : null;
     budget = json['budget'];
+
     if (json['genres'] != null) {
       genres = <Genres>[];
       json['genres'].forEach((v) {
-        genres!.add(new Genres.fromJson(v));
+        genres!.add(Genres.fromJson(v));
       });
     }
+
     homepage = json['homepage'];
     id = json['id'];
     imdbId = json['imdb_id'];
@@ -83,30 +86,38 @@ class MovieDetails {
     overview = json['overview'];
     popularity = json['popularity'];
     posterPath = json['poster_path'];
+
     if (json['production_companies'] != null) {
       productionCompanies = <ProductionCompanies>[];
       json['production_companies'].forEach((v) {
-        productionCompanies!.add(new ProductionCompanies.fromJson(v));
+        productionCompanies!.add(ProductionCompanies.fromJson(v));
       });
     }
     if (json['production_countries'] != null) {
       productionCountries = <ProductionCountries>[];
       json['production_countries'].forEach((v) {
-        productionCountries!.add(new ProductionCountries.fromJson(v));
+        productionCountries!.add(ProductionCountries.fromJson(v));
       });
     }
+
     releaseDate = getYear(json['release_date']);
-    revenue = json['revenue'];
-    runtime = minutesToHours(json['runtime']);
+
+    print("Genre");
+
+    runtime = json['runtime'];
+
     if (json['spoken_languages'] != null) {
       spokenLanguages = <SpokenLanguages>[];
       json['spoken_languages'].forEach((v) {
-        spokenLanguages!.add(new SpokenLanguages.fromJson(v));
+        spokenLanguages!.add(SpokenLanguages.fromJson(v));
       });
     }
+
     status = json['status'];
     tagline = json['tagline'];
+
     title = json['title'];
+
     video = json['video'];
     voteAverage = json['vote_average'].toString();
     voteCount = json['vote_count'];
@@ -114,18 +125,6 @@ class MovieDetails {
 
   String getYear(String fullDate) {
     return fullDate.split("-")[0];
-  }
-
-  String minutesToHours(int value) {
-    if (value < 60) {
-      return "${value}m";
-    } else if (value == 60) {
-      return "1hr";
-    } else {
-      var hour = value ~/ 60;
-      var minutes = value % 60;
-      return "${hour}hr ${minutes}m";
-    }
   }
 }
 
