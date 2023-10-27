@@ -8,6 +8,8 @@ import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_item.dart';
 import 'package:movies_app/features/home/view_model/popular_movies_cubit/popular_movies_cubit.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
+import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
 class PopularMoviesCarouselSlider extends StatefulWidget {
   const PopularMoviesCarouselSlider({
@@ -38,7 +40,19 @@ class _PopularMoviesCarouselSliderState
           return CarouselSlider.builder(
             itemCount: state.movies.length,
             itemBuilder: (context, index, realIndex) {
-              return PopularMovieCarouselItem(movie: state.movies[index]);
+              return InkWell(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                onTap: () {
+                  Navigator.pushNamed(context, MovieDetailsView.routeName,
+                      arguments: state.movies[index]);
+                },
+                child: PopularMovieCarouselItem(
+                  movie: state.movies[index],
+                ),
+              );
             },
             options: CarouselOptions(
               enlargeCenterPage: true,
@@ -48,7 +62,7 @@ class _PopularMoviesCarouselSliderState
               scrollPhysics: const NeverScrollableScrollPhysics(),
               // enlargeFactor: 0.5,
               clipBehavior: Clip.none,
-              height: 200.h,
+              height: 290.h,
               enableInfiniteScroll: true,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 6),
@@ -58,7 +72,7 @@ class _PopularMoviesCarouselSliderState
         } else if (state is PopularMoviesFailure) {
           return SizedBox(
             width: double.infinity,
-            height: 200.h,
+            height: 290.h,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +94,7 @@ class _PopularMoviesCarouselSliderState
         } else {
           return SizedBox(
             width: double.infinity,
-            height: 200.h,
+            height: 290.h,
             child: const Center(
               child: SpinKitFoldingCube(
                 color: AppColors.yellowColor,

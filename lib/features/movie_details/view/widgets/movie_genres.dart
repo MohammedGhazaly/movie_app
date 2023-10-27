@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/app_styles.dart';
 
 class MovieGenres extends StatelessWidget {
-  const MovieGenres({super.key});
+  final String genreName;
+  const MovieGenres({super.key, required this.genreName});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,8 @@ class MovieGenres extends StatelessWidget {
         ),
       ),
       child: Text(
-        "Action",
+        genreName,
+        style: AppStyles.textStyle14,
       ),
     );
   }

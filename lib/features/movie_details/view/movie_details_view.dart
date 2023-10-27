@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_details_body.dart';
+import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
+import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
 class MovieDetailsView extends StatelessWidget {
   static String routeName = "moveDetailsScreen";
@@ -8,16 +10,17 @@ class MovieDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var movieArgs = ModalRoute.of(context)!.settings.arguments as MovieDetails;
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Dora and the lost city of gold",
+          movieArgs.title ?? "Unknown movie",
           style: AppStyles.textStyle20.copyWith(fontWeight: FontWeight.w400),
         ),
       ),
-      body: MovieDetailsBody(),
+      body: MovieDetailsBody(movieId: movieArgs.id!),
     );
   }
 }

@@ -6,7 +6,7 @@ sealed class PopularMoviesState {}
 final class PopularMoviesLoading extends PopularMoviesState {}
 
 final class PopularMoviesSuccess extends PopularMoviesState {
-  final List<Movie> movies;
+  final List<MovieDetails> movies;
 
   PopularMoviesSuccess({required this.movies});
 }
