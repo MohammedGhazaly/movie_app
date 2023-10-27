@@ -7,4 +7,8 @@ final class MovieDetailLoading extends MovieDetailState {}
 
 final class MovieDetailSuccess extends MovieDetailState {}
 
-final class MovieDetailFailure extends MovieDetailState {}
+final class MovieDetailFailure extends MovieDetailState {
+  final String errorMessage;
+
+  MovieDetailFailure({required this.errorMessage});
+}
