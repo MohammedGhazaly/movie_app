@@ -37,4 +37,20 @@ class ApiService {
       throw e;
     }
   }
+
+  static Future<MoveiResponse> getSimilarMovies(String movieId) async {
+    try {
+      Uri url = Uri.parse(
+          "https://${ApiConstants.baseUrl}${ApiConstants.movieEndPoint}/${movieId}/similar?api_key${ApiConstants.apiKey}");
+      var response = await http.get(url);
+
+      Map<String, dynamic> jsonData = jsonDecode(response.body);
+
+      var responseData = MoveiResponse.fromJson(jsonData);
+
+      return responseData;
+    } on Exception catch (e) {
+      throw e;
+    }
+  }
 }

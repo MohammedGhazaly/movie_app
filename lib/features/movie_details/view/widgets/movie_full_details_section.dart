@@ -7,7 +7,7 @@ import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_details_bottom.dart';
 import 'package:movies_app/features/movie_details/view/widgets/movie_details_top.dart';
-import 'package:movies_app/features/movie_details/view_model/cubit/movie_detail_cubit.dart';
+import 'package:movies_app/features/movie_details/view_model/movie_detail_cubit/movie_detail_cubit.dart';
 
 class MovieFullDetailsSection extends StatefulWidget {
   final int movieId;
