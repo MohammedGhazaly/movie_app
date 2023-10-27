@@ -22,7 +22,7 @@ class ApiService {
     }
   }
 
-  static Future<MovieDetails> movieDetails(String movieId) async {
+  static Future<MovieDetails> getMovieDetails(String movieId) async {
     try {
       Uri url = Uri.https(
         ApiConstants.baseUrl,

@@ -4,6 +4,9 @@ class MoveiResponse {
     this.results,
     this.totalPages,
     this.totalResults,
+    this.success,
+    this.statusCode,
+    this.statusMessage,
   });
 
   MoveiResponse.fromJson(dynamic json) {
@@ -20,7 +23,7 @@ class MoveiResponse {
     totalResults = json['total_results'];
     statusCode = json["status_code"];
     statusMessage = json["status_message"];
-    succes = json["success"];
+    success = json["success"];
   }
   int? page;
   List<Movie>? results;
@@ -28,7 +31,7 @@ class MoveiResponse {
   int? totalResults;
   int? statusCode;
   String? statusMessage;
-  bool? succes;
+  bool? success;
 }
 
 class Movie {

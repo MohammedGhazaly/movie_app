@@ -24,35 +24,45 @@ class MovieDetails {
   bool? video;
   String? voteAverage;
   int? voteCount;
+  bool? success;
+  bool? statusCode;
+  String? statusMessage;
 
-  MovieDetails(
-      {this.adult,
-      this.backdropPath,
-      this.belongsToCollection,
-      this.budget,
-      this.genres,
-      this.homepage,
-      this.id,
-      this.imdbId,
-      this.originalLanguage,
-      this.originalTitle,
-      this.overview,
-      this.popularity,
-      this.posterPath,
-      this.productionCompanies,
-      this.productionCountries,
-      this.releaseDate,
-      this.revenue,
-      this.runtime,
-      this.spokenLanguages,
-      this.status,
-      this.tagline,
-      this.title,
-      this.video,
-      this.voteAverage,
-      this.voteCount});
+  MovieDetails({
+    this.adult,
+    this.backdropPath,
+    this.belongsToCollection,
+    this.budget,
+    this.genres,
+    this.homepage,
+    this.id,
+    this.imdbId,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.productionCompanies,
+    this.productionCountries,
+    this.releaseDate,
+    this.revenue,
+    this.runtime,
+    this.spokenLanguages,
+    this.status,
+    this.tagline,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+    this.success,
+    this.statusCode,
+    this.statusMessage,
+  });
 
   MovieDetails.fromJson(Map<String, dynamic> json) {
+    success = json["success"];
+    statusCode = json["status_code"];
+    statusMessage = json["status_message"];
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     belongsToCollection = json['belongs_to_collection'] != null
