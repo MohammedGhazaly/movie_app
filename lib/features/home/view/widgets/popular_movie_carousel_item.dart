@@ -95,7 +95,9 @@ class PopularMovieCarouselItem extends StatelessWidget {
                             width: 5.w,
                           ),
                           Text(
-                            movie.voteAverage ?? "0",
+                            double.parse(movie.voteAverage!)
+                                    .toStringAsFixed(1) ??
+                                "0",
                             style: AppStyles.textStyle14,
                           ),
                           SizedBox(
