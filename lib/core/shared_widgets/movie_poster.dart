@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/constants/api_constants.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
+import 'package:movies_app/cubits/watchlist_cubit/wishlist_cubit.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
-import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
-class MoviePoster extends StatelessWidget {
+class MoviePoster extends StatefulWidget {
   final double height;
   final double aspectRatio;
   final MovieDetails movie;
@@ -18,9 +19,15 @@ class MoviePoster extends StatelessWidget {
       required this.movie});
 
   @override
+  State<MoviePoster> createState() => _MoviePosterState();
+}
+
+class _MoviePosterState extends State<MoviePoster> {
+  @override
   Widget build(BuildContext context) {
+    var wishListCubit = BlocProvider.of<WatchlistCubit>(context, listen: true);
     return SizedBox(
-      height: height,
+      height: widget.height,
       child: Stack(
         children: [
           AspectRatio(
@@ -30,7 +37,8 @@ class MoviePoster extends StatelessWidget {
               child: CachedNetworkImage(
                 // imageUrl: artilce.urlToImage!,
                 // imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
-                imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
+                imageUrl:
+                    "${ApiConstants.imagePrefix}${widget.movie.posterPath}",
                 fit: BoxFit.fill,
                 errorWidget: (context, str, ob) {
                   return Container(
@@ -53,29 +61,28 @@ class MoviePoster extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 0,
-            left: 0,
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                width: 32,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
+              top: 0,
+              left: 0,
+              child: InkWell(
+                onTap: () {
+                  wishListCubit.toggleWatchList(widget.movie.id!);
+                },
+                child: Container(
+                  width: 32,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage("assets/icons/bookmark_add.png")
-
-                      // AssetImage(
-                      //   movie.isWishListed == false
-                      //       ? "assets/icons/bookmark_add.png"
-                      //       : "assets/icons/bookmarked.png",
-                      // ),
+                      image: AssetImage(
+                        !wishListCubit.moveiIds.contains(widget.movie.id!)
+                            ? "assets/icons/bookmark_add.png"
+                            : "assets/icons/bookmarked.png",
                       ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          )
+              ))
         ],
       ),
     );
