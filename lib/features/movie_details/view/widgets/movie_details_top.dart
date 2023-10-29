@@ -70,7 +70,7 @@ class MovieDetailsTop extends StatelessWidget {
                 width: 5,
               ),
               Text(
-                "${double.parse(movieDetails.voteAverage!).toStringAsFixed(1)}",
+                double.parse(movieDetails.voteAverage!).toStringAsFixed(1),
                 style: AppStyles.textStyle16
                     .copyWith(fontWeight: FontWeight.normal),
               ),

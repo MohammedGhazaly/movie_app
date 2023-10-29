@@ -1,14 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/constants/api_constants.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/cubits/watchlist_cubit/wishlist_cubit.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 
-class MoviePoster extends StatefulWidget {
+class MoviePoster extends StatelessWidget {
   final double height;
   final double aspectRatio;
   final MovieDetails movie;
@@ -19,15 +18,12 @@ class MoviePoster extends StatefulWidget {
       required this.movie});
 
   @override
-  State<MoviePoster> createState() => _MoviePosterState();
-}
-
-class _MoviePosterState extends State<MoviePoster> {
-  @override
   Widget build(BuildContext context) {
-    var wishListCubit = BlocProvider.of<WatchlistCubit>(context, listen: true);
+    var watchListCubit = BlocProvider.of<WatchlistCubit>(context, listen: true);
+    print(watchListCubit.movies);
+    var isWishListed = watchListCubit.moviesBox.keys.contains(movie.id);
     return SizedBox(
-      height: widget.height,
+      height: height,
       child: Stack(
         children: [
           AspectRatio(
@@ -37,8 +33,7 @@ class _MoviePosterState extends State<MoviePoster> {
               child: CachedNetworkImage(
                 // imageUrl: artilce.urlToImage!,
                 // imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
-                imageUrl:
-                    "${ApiConstants.imagePrefix}${widget.movie.posterPath}",
+                imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
                 fit: BoxFit.fill,
                 errorWidget: (context, str, ob) {
                   return Container(
@@ -49,12 +44,13 @@ class _MoviePosterState extends State<MoviePoster> {
                       ),
                     ),
                     child: Center(
-                        child: Text(
-                      "Sorry, no image found.",
-                      textAlign: TextAlign.center,
-                      style:
-                          AppStyles.textStyle16.copyWith(color: Colors.black),
-                    )),
+                      child: Text(
+                        "Sorry, no image found.",
+                        textAlign: TextAlign.center,
+                        style:
+                            AppStyles.textStyle16.copyWith(color: Colors.black),
+                      ),
+                    ),
                   );
                 },
               ),
@@ -65,7 +61,7 @@ class _MoviePosterState extends State<MoviePoster> {
               left: 0,
               child: InkWell(
                 onTap: () {
-                  wishListCubit.toggleWatchList(widget.movie.id!);
+                  watchListCubit.toggleWatchList(movie.id!, movie);
                 },
                 child: Container(
                   width: 32,
@@ -74,11 +70,9 @@ class _MoviePosterState extends State<MoviePoster> {
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                        !wishListCubit.moveiIds.contains(widget.movie.id!)
-                            ? "assets/icons/bookmark_add.png"
-                            : "assets/icons/bookmarked.png",
-                      ),
+                      image: AssetImage(!isWishListed
+                          ? "assets/icons/bookmark_add.png"
+                          : "assets/icons/bookmarked.png"),
                     ),
                   ),
                 ),
