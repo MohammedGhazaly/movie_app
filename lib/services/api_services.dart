@@ -36,6 +36,8 @@ class ApiService {
 
       var responseData = MovieDetails.fromJson(jsonData);
       return responseData;
+    } on SocketException catch (e) {
+      throw "No internet connection.";
     } on Exception catch (e) {
       throw e;
     }
@@ -52,6 +54,25 @@ class ApiService {
       var responseData = MoveiResponse.fromJson(jsonData);
 
       return responseData;
+    } on SocketException catch (e) {
+      throw "No internet connection.";
+    } on Exception catch (e) {
+      throw e;
+    }
+  }
+
+  static Future<MoveiResponse> getMoviesBySearchQuery(
+      String searchQuery) async {
+    try {
+      Uri url = Uri.parse(
+          "https://${ApiConstants.baseUrl}${ApiConstants.searchEndpoint}?query=$searchQuery");
+      var response = await http.get(url);
+
+      Map<String, dynamic> jsonData = jsonDecode(response.body);
+      var responseData = MoveiResponse.fromJson(jsonData);
+      return responseData;
+    } on SocketException catch (e) {
+      throw "No internet connection.";
     } on Exception catch (e) {
       throw e;
     }
