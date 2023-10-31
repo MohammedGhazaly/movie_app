@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/cubits/watchlist_cubit/wishlist_cubit.dart';
+import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
 import 'package:movies_app/features/watchlist/view/widgets/watch_list_item.dart';
 
 class WatchlistView extends StatefulWidget {
@@ -46,8 +47,14 @@ class _WatchlistViewState extends State<WatchlistView> {
           Expanded(
             child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 25.w),
-              itemBuilder: (context, index) => WatchListItem(
-                movie: watchListCubit.movies[index],
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, MovieDetailsView.routeName,
+                      arguments: watchListCubit.movies[index]);
+                },
+                child: WatchListItem(
+                  movie: watchListCubit.movies[index],
+                ),
               ),
               separatorBuilder: (context, index) => Container(
                 color: AppColors.greyDarkColor,
