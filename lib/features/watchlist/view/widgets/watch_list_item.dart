@@ -18,7 +18,7 @@ class WatchListItem extends StatelessWidget {
         children: [
           MoviePoster(
             aspectRatio: 75 / 100,
-            height: 150.h,
+            height: 170.h,
             movie: movie,
           ),
           SizedBox(
@@ -30,8 +30,9 @@ class WatchListItem extends StatelessWidget {
             children: [
               Text(
                 movie.title ?? "",
-                maxLines: 1,
-                style: AppStyles.textStyle16.copyWith(
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: AppStyles.textStyle14.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
               ),

@@ -43,7 +43,7 @@ class MovieDetailsBottom extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MoviePoster(
-                      aspectRatio: 85 / 100,
+                      aspectRatio: 65 / 100,
                       height: 250.h,
                       movie: movieDetails,
                     ),

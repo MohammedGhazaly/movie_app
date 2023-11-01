@@ -20,35 +20,48 @@ class MoviePoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var watchListCubit = BlocProvider.of<WatchlistCubit>(context, listen: true);
-    print(watchListCubit.movies);
     var isWishListed = watchListCubit.moviesBox.keys.contains(movie.id);
     return SizedBox(
       height: height,
       child: Stack(
         children: [
           AspectRatio(
-            aspectRatio: 65 / 100,
+            aspectRatio: aspectRatio,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: CachedNetworkImage(
                 // imageUrl: artilce.urlToImage!,
                 // imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
                 imageUrl: "${ApiConstants.imagePrefix}${movie.posterPath}",
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 errorWidget: (context, str, ob) {
+                  // return Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(12),
+                  //     color: AppColors.yellowColor.withOpacity(
+                  //       1,
+                  //     ),
+                  //   ),
+                  //   child: Center(
+                  //     child: Text(
+                  //       "Sorry, no image found.",
+                  //       textAlign: TextAlign.center,
+                  //       style:
+                  //           AppStyles.textStyle16.copyWith(color: Colors.black),
+                  //     ),
+                  //   ),
+                  // );
                   return Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: AppColors.yellowColor.withOpacity(
                         1,
                       ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Sorry, no image found.",
-                        textAlign: TextAlign.center,
-                        style:
-                            AppStyles.textStyle16.copyWith(color: Colors.black),
+                      image: const DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(
+                          "assets/images/placeholder.jpg",
+                        ),
                       ),
                     ),
                   );

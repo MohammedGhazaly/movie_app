@@ -9,7 +9,6 @@ import 'package:movies_app/features/home/view/widgets/popular_movie_carousel_ite
 import 'package:movies_app/features/home/view_model/popular_movies_cubit/popular_movies_cubit.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
-import 'package:movies_app/models/movie_model/movie_response_model.dart';
 
 class PopularMoviesCarouselSlider extends StatefulWidget {
   const PopularMoviesCarouselSlider({
