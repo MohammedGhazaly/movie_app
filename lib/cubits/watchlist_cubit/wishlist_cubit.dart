@@ -29,7 +29,6 @@ class WatchlistCubit extends Cubit<WatchlistState> {
   Future<void> addItemToDataBase(int movieId, MovieDetails movieDetails) async {
     await moviesBox.put(movieId, movieDetails);
     populateList();
-    print("Added");
   }
 
   Future<void> removeItemFromDataBase(int movieId) async {

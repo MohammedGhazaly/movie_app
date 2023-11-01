@@ -17,8 +17,8 @@ class WatchListItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           MoviePoster(
-            aspectRatio: 140 / 90,
-            height: 130.h,
+            aspectRatio: 75 / 100,
+            height: 170.h,
             movie: movie,
           ),
           SizedBox(
@@ -32,7 +32,7 @@ class WatchListItem extends StatelessWidget {
                 movie.title ?? "",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: AppStyles.textStyle16.copyWith(
+                style: AppStyles.textStyle14.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
               ),

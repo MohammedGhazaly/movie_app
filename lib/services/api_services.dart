@@ -62,10 +62,11 @@ class ApiService {
   }
 
   static Future<MoveiResponse> getMoviesBySearchQuery(
-      String searchQuery) async {
+      String searchQuery, int page) async {
     try {
       Uri url = Uri.parse(
-          "https://${ApiConstants.baseUrl}${ApiConstants.searchEndpoint}?query=$searchQuery");
+          "https://${ApiConstants.baseUrl}${ApiConstants.searchEndpoint}?query=$searchQuery&api_key=${ApiConstants.apiKey}&page=$page");
+      print(url);
       var response = await http.get(url);
 
       Map<String, dynamic> jsonData = jsonDecode(response.body);

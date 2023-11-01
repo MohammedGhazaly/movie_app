@@ -28,22 +28,18 @@ class MovieDetailsTop extends StatelessWidget {
             height: 200.h,
             errorWidget: (context, str, ob) {
               return Container(
-                height: 200.h,
-                width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  // color: Colors.white.withOpacity(
-                  //   0.3,
-                  // ),
                   color: AppColors.yellowColor.withOpacity(
                     1,
                   ),
+                  image: const DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage(
+                      "assets/images/placeholder.jpg",
+                    ),
+                  ),
                 ),
-                child: Center(
-                    child: Text(
-                  "Sorry, no image found.",
-                  style: AppStyles.textStyle20.copyWith(color: Colors.black),
-                )),
               );
             },
           ),

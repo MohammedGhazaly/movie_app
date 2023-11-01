@@ -3,13 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
+  final Function(String) onSubmittedFunction;
+
   const CustomTextField({
     super.key,
+    required this.onSubmittedFunction,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (value) {
+        onSubmittedFunction(value);
+      },
       cursorColor: AppColors.yellowColor,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
