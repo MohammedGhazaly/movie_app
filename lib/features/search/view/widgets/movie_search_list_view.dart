@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
+import 'package:movies_app/features/genre_movies/view_model/genere_movies_listview.dart/genre_movies_listview_cubit.dart';
 import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
 import 'package:movies_app/features/search/view_model/movie_search_listview_cubit.dart/movie_search_listview_cubit.dart';
 import 'package:movies_app/features/watchlist/view/widgets/watch_list_item.dart';
@@ -81,31 +82,46 @@ class _MovieSearchListViewState extends State<MovieSearchListView> {
             ),
           ),
         if (searchListViewCubit.state is MovieSearchListviewCubitNoMoreData)
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 5.h,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: AppColors.yellowColor,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Text(
-                  "No more movies matching your search.",
-                  textAlign: TextAlign.center,
-                  style: AppStyles.textStyle16.copyWith(
-                    color: AppColors.blackColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-            ],
+          const NoMoreMoviesPaggination(
+            message: "No more movies matching your search.",
           )
+      ],
+    );
+  }
+}
+
+class NoMoreMoviesPaggination extends StatelessWidget {
+  final String message;
+  const NoMoreMoviesPaggination({
+    super.key,
+    required this.message,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 5.h,
+        ),
+        Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: AppColors.yellowColor,
+              borderRadius: BorderRadius.circular(12)),
+          child: Text(
+            message,
+            textAlign: TextAlign.center,
+            style: AppStyles.textStyle16.copyWith(
+              color: AppColors.blackColor,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 5.h,
+        ),
       ],
     );
   }

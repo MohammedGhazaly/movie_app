@@ -12,4 +12,8 @@ final class GenreMoviesListViewFinishedLoadingData
 
 final class GenreMoviesListViewNoMoreData extends GenerMoviesListViewState {}
 
-final class GenreMoviesListViewFaliure extends GenerMoviesListViewState {}
+final class GenreMoviesListViewFaliure extends GenerMoviesListViewState {
+  final String errorMessage;
+
+  GenreMoviesListViewFaliure({required this.errorMessage});
+}

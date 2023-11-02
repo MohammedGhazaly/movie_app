@@ -44,7 +44,10 @@ class MovieSearchListviewCubit extends Cubit<MovieSearchListviewCubitState> {
         hasNextPage = false;
         emit(MovieSearchListviewCubitNoMoreData());
       }
-    } catch (e) {}
+    } catch (e) {
+      MovieSearchListviewCubitFaliure(
+          errorMessage: "Error loading more movies");
+    }
 
     isLoadingMoreData = false;
   }

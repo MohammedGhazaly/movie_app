@@ -7,8 +7,8 @@ import 'package:movies_app/services/api_services.dart';
 
 part 'genre_movies_listview_state.dart';
 
-class MovieSearchListviewCubit extends Cubit<GenerMoviesListViewState> {
-  MovieSearchListviewCubit() : super(GenreMoviesListViewInitial()) {}
+class GenreMoviesListViewCubit extends Cubit<GenerMoviesListViewState> {
+  GenreMoviesListViewCubit() : super(GenreMoviesListViewInitial()) {}
 
   bool firstTimeLoading = true;
   int page = 1;
@@ -23,7 +23,7 @@ class MovieSearchListviewCubit extends Cubit<GenerMoviesListViewState> {
     }
   }
 
-  void fetchMoreData(String searchQuery) async {
+  void fetchMoreData(int genreId) async {
     page += 1;
     if (page > 500 || hasNextPage == false) {
       return;
@@ -34,7 +34,7 @@ class MovieSearchListviewCubit extends Cubit<GenerMoviesListViewState> {
     }
     try {
       final MoveiResponse response =
-          await ApiService.getMoviesBySearchQuery(searchQuery, page);
+          await ApiService.getMoviesByGenreId(genreId, page);
       List<MovieDetails> fetchedData = response.results ?? [];
 
       if (fetchedData.isNotEmpty) {
@@ -44,7 +44,9 @@ class MovieSearchListviewCubit extends Cubit<GenerMoviesListViewState> {
         hasNextPage = false;
         emit(GenreMoviesListViewNoMoreData());
       }
-    } catch (e) {}
+    } catch (e) {
+      GenreMoviesListViewFaliure(errorMessage: "Error loading more movies");
+    }
 
     isLoadingMoreData = false;
   }

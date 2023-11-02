@@ -4,10 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/features/genre_movies/view/widgets/movie_genre_list_tile.dart';
+import 'package:movies_app/features/genre_movies/view/widgets/genere_movies_list_view.dart';
+import 'package:movies_app/features/genre_movies/view_model/genere_movies_listview.dart/genre_movies_listview_cubit.dart';
 import 'package:movies_app/features/genre_movies/view_model/genre_movies/genre_movies_cubit.dart';
-import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
-import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 
 class GenreMoviesBody extends StatefulWidget {
   final int genreId;
@@ -34,19 +33,12 @@ class _GenreMoviesBodyState extends State<GenreMoviesBody> {
       bloc: genreMoviesCubit,
       builder: (context, state) {
         if (state is GenreMoviesSuccess) {
-          return ListView.builder(
-            itemCount: state.movies.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, MovieDetailsView.routeName,
-                      arguments: state.movies[index] as MovieDetails);
-                },
-                child: MovieGenreListTle(
-                  movieDetails: state.movies[index],
-                ),
-              );
-            },
+          return BlocProvider(
+            create: (context) => GenreMoviesListViewCubit(),
+            child: GenreMoviesListView(
+              movies: state.movies,
+              genreId: widget.genreId,
+            ),
           );
         } else if (state is GenreMoviesFailure) {
           return Center(
