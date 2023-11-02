@@ -16,9 +16,13 @@ class SimilarMoviesCubit extends Cubit<SimilarMoviesState> {
       var response = await ApiService.getSimilarMovies(movieId);
       if (response.statusCode != null) {
         emit(SimilarMoviesFailure(errorMessage: response.statusMessage!));
+      } else if (response.results!.isEmpty) {
+        emit(SimilarMoviesEmpty());
       } else {
         emit(SimilarMoviesSucces(movies: response.results ?? []));
       }
+
+      print(response.results);
     } on SocketException catch (e) {
       emit(SimilarMoviesFailure(errorMessage: "No internet connection."));
     } catch (e) {

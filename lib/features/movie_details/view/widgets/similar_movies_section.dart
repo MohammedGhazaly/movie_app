@@ -100,6 +100,28 @@ class _SimilarMoviesSectionState extends State<SimilarMoviesSection> {
             ),
           );
         }
+        if (state is SimilarMoviesEmpty) {
+          return Container(
+            padding: EdgeInsets.symmetric(vertical: 15.h),
+            width: double.infinity,
+            height: 150.h,
+            color: AppColors.darkColor,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      "Sorry, no similar movies found.",
+                      style: AppStyles.textStyle16,
+                    ),
+                  ),
+                )
+                //       );
+              ],
+            ),
+          );
+        }
         return SpinKitFoldingCube(
           color: AppColors.yellowColor,
           size: 35.sp,

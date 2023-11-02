@@ -23,12 +23,10 @@ class SearchCubit extends Cubit<SearchState> {
       } else {
         emit(SearchSuccess(movies: response.results!));
       }
-    } on SocketDirection catch (e) {
+    } on SocketException catch (e) {
       emit(SearchFailure(errorMessage: "No internet connection."));
     } on Exception catch (e) {
       emit(SearchFailure(errorMessage: e.toString()));
     }
   }
-
-  void getData() {}
 }

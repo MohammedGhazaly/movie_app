@@ -95,8 +95,10 @@ class _MovieSearchListViewState extends State<MovieSearchListView> {
                 child: Text(
                   "No more movies matching your search.",
                   textAlign: TextAlign.center,
-                  style: AppStyles.textStyle22
-                      .copyWith(color: AppColors.blackColor),
+                  style: AppStyles.textStyle16.copyWith(
+                    color: AppColors.blackColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               SizedBox(

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movies_app/core/utils/app_theme.dart';
 import 'package:movies_app/cubits/watchlist_cubit/wishlist_cubit.dart';
+import 'package:movies_app/features/genre_movies/view/genre_movies.dart';
 import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
 import 'package:movies_app/features/root/view/root_view.dart';
 import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
@@ -41,6 +42,7 @@ class MoviesApp extends StatelessWidget {
             routes: {
               RootView.routeName: (context) => const RootView(),
               MovieDetailsView.routeName: (context) => const MovieDetailsView(),
+              GenreMovies.routeName: (context) => const GenreMovies(),
             },
           );
         },

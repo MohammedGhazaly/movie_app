@@ -6,6 +6,8 @@ class ApiConstants {
   static const String upcomingEndPoint = "/3/movie/upcoming";
   static const String topRatedEndPoing = "/3/movie/top_rated";
   static const String searchEndpoint = "/3/search/movie";
+  static const String genreIdEndPoint =
+      "/3/discover/movie?include_adult=true&sort_by=vote_count.desc";
 
   static const imagePrefix = "https://image.tmdb.org/t/p/w500";
 }

@@ -67,7 +67,7 @@ class _WatchlistViewState extends State<WatchlistView> {
           Expanded(
             child: Center(
               child: Text(
-                "No movies in watchlist,",
+                "No movies in watchlist.",
                 textAlign: TextAlign.center,
                 style: AppStyles.textStyle22.copyWith(fontSize: 26.sp),
               ),
