@@ -3,14 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/browse/view/widgets/custom_genre_container.dart';
+import 'package:movies_app/features/genre_movies/view/genre_movies.dart';
 import 'package:movies_app/models/genre_model/genre_model.dart';
 
 class BrowseView extends StatelessWidget {
-  static const String routeName = "Browse-Screen";
-  List genreList = GenreDM.getGenres();
+  static const String routeName = "browse-Screen";
+  const BrowseView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List genreList = GenreDM.getGenres();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -32,8 +35,14 @@ class BrowseView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return InkWell(
                     splashColor: AppColors.yellowColor.withOpacity(0.3),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    onTap: () {},
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        GenreMovies.routeName,
+                        arguments: genreList[index] as GenreDM,
+                      );
+                    },
                     child: CustomGenreContainer(
                         genre: genreList[index], index: index));
               },

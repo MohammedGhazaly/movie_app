@@ -16,4 +16,8 @@ final class MovieSearchListviewCubitNoMoreData
     extends MovieSearchListviewCubitState {}
 
 final class MovieSearchListviewCubitFaliure
-    extends MovieSearchListviewCubitState {}
+    extends MovieSearchListviewCubitState {
+  final String errorMessage;
+
+  MovieSearchListviewCubitFaliure({required this.errorMessage});
+}

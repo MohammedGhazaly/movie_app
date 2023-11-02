@@ -5,6 +5,8 @@ sealed class SimilarMoviesState {}
 
 final class SimilarMoviesLoading extends SimilarMoviesState {}
 
+final class SimilarMoviesEmpty extends SimilarMoviesState {}
+
 final class SimilarMoviesSucces extends SimilarMoviesState {
   final List<MovieDetails> movies;
 

@@ -66,6 +66,22 @@ class ApiService {
     try {
       Uri url = Uri.parse(
           "https://${ApiConstants.baseUrl}${ApiConstants.searchEndpoint}?query=$searchQuery&api_key=${ApiConstants.apiKey}&page=$page");
+      var response = await http.get(url);
+      print(url);
+      Map<String, dynamic> jsonData = jsonDecode(response.body);
+      var responseData = MoveiResponse.fromJson(jsonData);
+      return responseData;
+    } on SocketException catch (e) {
+      rethrow;
+    } on Exception catch (e) {
+      throw e;
+    }
+  }
+
+  static Future<MoveiResponse> getMoviesByGenreId(int genreId, int page) async {
+    try {
+      Uri url = Uri.parse(
+          "https://${ApiConstants.baseUrl}${ApiConstants.genreIdEndPoint}&api_key=${ApiConstants.apiKey}&page=$page&with_genres=$genreId");
       print(url);
       var response = await http.get(url);
 
@@ -73,7 +89,7 @@ class ApiService {
       var responseData = MoveiResponse.fromJson(jsonData);
       return responseData;
     } on SocketException catch (e) {
-      throw "No internet connection.";
+      rethrow;
     } on Exception catch (e) {
       throw e;
     }

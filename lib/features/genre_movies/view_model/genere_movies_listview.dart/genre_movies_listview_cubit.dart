@@ -5,10 +5,10 @@ import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 import 'package:movies_app/models/movie_model/movie_response_model.dart';
 import 'package:movies_app/services/api_services.dart';
 
-part 'movie_search_listview_state.dart';
+part 'genre_movies_listview_state.dart';
 
-class MovieSearchListviewCubit extends Cubit<MovieSearchListviewCubitState> {
-  MovieSearchListviewCubit() : super(MovieSearchListviewCubitInitial()) {}
+class GenreMoviesListViewCubit extends Cubit<GenerMoviesListViewState> {
+  GenreMoviesListViewCubit() : super(GenreMoviesListViewInitial()) {}
 
   bool firstTimeLoading = true;
   int page = 1;
@@ -23,30 +23,29 @@ class MovieSearchListviewCubit extends Cubit<MovieSearchListviewCubitState> {
     }
   }
 
-  void fetchMoreData(String searchQuery) async {
+  void fetchMoreData(int genreId) async {
     page += 1;
     if (page > 500 || hasNextPage == false) {
       return;
     }
     if (hasNextPage == true && isLoadingMoreData == false) {
       isLoadingMoreData = true;
-      emit(MovieSearchListviewCubitLoadingData());
+      emit(GenreMoviesListViewLoadingData());
     }
     try {
       final MoveiResponse response =
-          await ApiService.getMoviesBySearchQuery(searchQuery, page);
+          await ApiService.getMoviesByGenreId(genreId, page);
       List<MovieDetails> fetchedData = response.results ?? [];
 
       if (fetchedData.isNotEmpty) {
         movies.addAll(fetchedData);
-        emit(MovieSearchListviewCubitFinishedLoadingData());
+        emit(GenreMoviesListViewFinishedLoadingData());
       } else {
         hasNextPage = false;
-        emit(MovieSearchListviewCubitNoMoreData());
+        emit(GenreMoviesListViewNoMoreData());
       }
     } catch (e) {
-      MovieSearchListviewCubitFaliure(
-          errorMessage: "Error loading more movies");
+      GenreMoviesListViewFaliure(errorMessage: "Error loading more movies");
     }
 
     isLoadingMoreData = false;
