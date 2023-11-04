@@ -8,7 +8,6 @@ import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
 import 'package:movies_app/features/home/view_model/upcoming_movies_cubit.dart/upcoming_movies_cubit.dart';
 import 'package:movies_app/features/movie_details/view/movie_details_view.dart';
-import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 
 class NewReleasesSection extends StatefulWidget {
   const NewReleasesSection({
