@@ -26,6 +26,25 @@ class ApiService {
     }
   }
 
+  static Future<MoveiResponse> getUpcomingMovies() async {
+    try {
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.upcomingEndPoint, {
+        "api_key": ApiConstants.apiKey,
+      });
+      var response = await http.get(url);
+
+      Map<String, dynamic> jsonData = jsonDecode(response.body);
+
+      var responseData = MoveiResponse.fromJson(jsonData);
+
+      return responseData;
+    } on SocketException catch (e) {
+      throw "No internet connection.";
+    } catch (e) {
+      throw "There was an error, try again later";
+    }
+  }
+
   static Future<MovieDetails> getMovieDetails(int movieId) async {
     try {
       Uri url = Uri.parse(
