@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/shared_widgets/movie_poster.dart';
+import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/app_styles.dart';
-import 'package:movies_app/dummy_movie_model.dart';
+import 'package:movies_app/models/movie_details_model/movie_details_model.dart';
 
 class WatchListItem extends StatelessWidget {
-  const WatchListItem({super.key});
+  final MovieDetails movie;
+  const WatchListItem({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class WatchListItem extends StatelessWidget {
         children: [
           MoviePoster(
             aspectRatio: 75 / 100,
-            movie: dummyMovieData[0],
-            height: 150.h,
+            height: 170.h,
+            movie: movie,
           ),
           SizedBox(
             width: 15.w,
@@ -27,8 +29,10 @@ class WatchListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Dora and the",
-                style: AppStyles.textStyle16.copyWith(
+                movie.title ?? "",
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: AppStyles.textStyle14.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -36,7 +40,7 @@ class WatchListItem extends StatelessWidget {
                 height: 5.h,
               ),
               Text(
-                "2019",
+                movie.releaseDate ?? "",
                 style: AppStyles.textStyle14.copyWith(
                     fontWeight: FontWeight.w400,
                     color: Colors.white.withOpacity(0.75)),
@@ -44,11 +48,24 @@ class WatchListItem extends StatelessWidget {
               SizedBox(
                 height: 5.h,
               ),
-              Text(
-                "Authors",
-                style: AppStyles.textStyle14.copyWith(
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white.withOpacity(0.75)),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: AppColors.yellowColor,
+                    size: 24.sp,
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Text(
+                    double.parse(movie.voteAverage!).toStringAsFixed(1) ?? "0",
+                    style: AppStyles.textStyle14,
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                ],
               ),
             ],
           )),
